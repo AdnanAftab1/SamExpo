@@ -3,67 +3,80 @@ import { BlurFade } from "@/components/ui/blur-fade";
 
 export default function AboutInfos() {
   return (
-    <section className="flex flex-col bg-[#f7f7eb]">
+    <section className="w-full bg-[#f7f7eb] py-[60px] px-5 sm:px-8 lg:px-20 flex flex-col gap-20">
 
-      {/* Section 1 — text left, image right */}
-      <div className="w-full px-5 sm:px-8 lg:px-20 py-[80px] bg-[#f7f7eb] flex justify-center items-center">
-        <div className="w-full max-w-[1280px] flex justify-center items-center flex-row max-md:flex-col gap-12 lg:gap-24">
+      {/* Block 1 — Text left, Image right */}
+      <div className="mx-auto w-full max-w-[1280px] flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-[130px]">
 
-          <BlurFade inView={true} duration={0.7} delay={0} offset={30}>
-            <div className="w-full lg:max-w-[560px] inline-flex flex-col justify-center items-start gap-4">
-              <h2 className="font-instrument text-[#193827] text-4xl sm:text-5xl max-md:text-3xl font-normal leading-[1.05]">
-                Corporate Genesis &amp; Mission
-              </h2>
-              <p className="font-dmsans text-[#193827]/85 text-lg max-md:text-base font-light leading-relaxed">
-                Al-Ahad Exports is a premier manufacturing and merchant export company with its own state-of-the-art leather production facilities in India, serving global markets since 2015. Our foundational objective is to offer a completely integrated production chain, handling everything from the sourcing of raw skin, processing into high-grade finished leather, to final luxury leather goods and safety wear manufacturing. With our scalable facility lines, large-scale custom corporate gifts and premium promotional giveaway production are also seamlessly executed.
+        <BlurFade inView duration={0.7} delay={0}>
+          <div className="w-full max-w-[593px] flex flex-col items-start gap-8">
+            <div className="flex flex-col items-start gap-[18px]">
+              <p className="font-instrument italic text-[#947534] text-[32px] leading-[42px]">
+                Extensive Range of
+              </p>
+              <h3 className="font-instrument uppercase text-[#193827] text-[32px] sm:text-[38px] lg:text-[42px] leading-[1.2] lg:leading-[55px]">
+                Manufacturing
+              </h3>
+            </div>
+            <div className="flex flex-col gap-6">
+              <p className="font-dmsans font-light text-[#193827] text-lg lg:text-xl leading-[26px]">
+                Al-Ahad leather is one of the most trusted private label leather handbag manufacturers as well as private label leather wallet manufacturers. If you want to have your own designed bags manufactured, please contact us.
+              </p>
+              <p className="font-dmsans font-light text-[#193827] text-lg lg:text-xl leading-[26px]">
+                We are the leather bag manufacturers making quality handmade leather goods, credit cards as leather promotional gifts, leather key chains as promotional gifts, leather wallets as promotional gifts, etc.
               </p>
             </div>
-          </BlurFade>
+          </div>
+        </BlurFade>
 
-          <BlurFade inView={true} duration={0.7} delay={0.3} offset={30}>
-            <div className="relative">
-              <Image
-                priority
-                src="/Randompic.jpg"
-                alt="Al-Ahad Exports Manufacturing Facility"
-                width={600}
-                height={600}
-                className="w-full max-w-[420px] border-[10px] border-[#f7f7eb] rotate-3 shadow-xl shadow-[#193827]/20 object-cover"
-              />
-            </div>
-          </BlurFade>
-        </div>
+        <BlurFade inView duration={0.7} delay={0.2}>
+          <Image
+            priority
+            src="/Manufacturer.jpg"
+            alt="Leather manufacturing at Al-Ahad Exports"
+            width={450}
+            height={550}
+            className="w-full max-w-[450px] h-[400px] lg:h-[550px] object-cover"
+          />
+        </BlurFade>
       </div>
 
-      {/* Section 2 — image left, text right (flex-row-reverse) */}
-      <div className="w-full px-5 sm:px-8 lg:px-20 py-[80px] bg-[#f7f7eb] flex justify-center items-center">
-        <div className="w-full max-w-[1280px] flex justify-center items-center flex-row-reverse max-md:flex-col gap-12 lg:gap-24">
+      {/* Block 2 — Image left, Text right */}
+      <div className="mx-auto w-full max-w-[1280px] flex flex-col-reverse lg:flex-row items-center justify-center gap-12 lg:gap-[130px]">
 
-          <BlurFade inView={true} duration={0.7} delay={0} offset={30}>
-            <div className="w-full lg:max-w-[560px] inline-flex flex-col justify-center items-start gap-4">
-              <h2 className="font-instrument text-[#193827] text-4xl sm:text-5xl max-md:text-3xl font-normal leading-[1.05]">
-                Factory Infrastructure &amp; Machinery
-              </h2>
-              <p className="font-dmsans text-[#193827]/85 text-lg max-md:text-base font-light leading-relaxed">
-                We are deeply committed to fulfilling international compliance standards while actively promoting environmentally friendly, socially responsible, and sustainable leather production methods across our entire supply network. Our state-of-the-art facilities feature modern machinery for precision cutting, edge finishing, and quality assurance. Every production run undergoes raw skin sorting, mid-assembly stitch checks, and final hand cleaning, ensuring zero batch defects.
+        <BlurFade inView duration={0.7} delay={0.2}>
+          <Image
+            priority
+            src="/Manufacturer.jpg"
+            alt="Leather craftsmanship at Al-Ahad Exports"
+            width={450}
+            height={550}
+            className="w-full max-w-[450px] h-[400px] lg:h-[550px] object-cover"
+          />
+        </BlurFade>
+
+        <BlurFade inView duration={0.7} delay={0}>
+          <div className="w-full max-w-[593px] flex flex-col items-start gap-8">
+            <div className="flex flex-col items-start gap-[18px]">
+              <p className="font-instrument italic text-[#947534] text-[32px] leading-[42px]">
+                Great Quality
+              </p>
+              <h3 className="font-instrument uppercase text-[#193827] text-[32px] sm:text-[38px] lg:text-[42px] leading-[1.2] lg:leading-[55px]">
+                Exciting Price
+              </h3>
+            </div>
+            <div className="flex flex-col gap-6">
+              <p className="font-dmsans font-light text-[#193827] text-lg lg:text-xl leading-[26px]">
+                We craft premium leather handbags, wallets, and accessories with exceptional finishing — all at competitive prices. Our skilled team handles every step, from design and pattern making to material selection, ensuring the highest standards.
+              </p>
+              <p className="font-dmsans font-light text-[#193827] text-lg lg:text-xl leading-[26px]">
+                Trusted by national and international brands, we offer on-time delivery, global door-to-door shipping, and scalable production for small to large orders. Whether you&apos;re a start-up or an established retailer, we help bring your leather goods collection to life.
               </p>
             </div>
-          </BlurFade>
-
-          <BlurFade inView={true} duration={0.7} delay={0.3} offset={30}>
-            <div className="relative">
-              <Image
-                priority
-                src="/Randompic.jpg"
-                alt="Al-Ahad Exports Factory Infrastructure"
-                width={600}
-                height={600}
-                className="w-full max-w-[420px] border-[10px] border-[#f7f7eb] -rotate-3 shadow-xl shadow-[#193827]/20 object-cover"
-              />
-            </div>
-          </BlurFade>
-        </div>
+          </div>
+        </BlurFade>
       </div>
+
     </section>
   );
 }
