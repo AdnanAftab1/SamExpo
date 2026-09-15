@@ -74,13 +74,7 @@ export default function Navbar() {
 
             {/* Center: Logo */}
             <Link href="/" aria-label="Al-Ahad Exports, since 2015" className="flex flex-col items-center h-[61px] w-[100px]">
-              <Image priority src="/Logo.svg" alt="" width={960} height={540} className="h-[35px] w-[40px] object-contain" />
-              <span className="mt-1 font-cormorant text-[10px] leading-[10px] text-white whitespace-nowrap">
-                AL-AHAD EXPORTS
-              </span>
-              <span className="font-chathura text-[7px] leading-[11px] text-white whitespace-nowrap">
-                SINCE 2015
-              </span>
+              <Image priority src="/Group 6.svg" alt="" width={960} height={540} className="size-24 object-contain" />
             </Link>
 
             {/* Right CTAs */}

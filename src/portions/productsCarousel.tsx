@@ -3,17 +3,28 @@ import Image from "next/image";
 import Link from "next/link";
 import { List } from "@/data/list";
 import { BlurFade } from "@/components/ui/blur-fade";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+  type CarouselApi,
+} from "@/components/ui/carousel";
 
 type Product = { name: string; picLink: string; description: string; nextLink: string };
 
 export default function Products() {
+  const [api, setApi] = useState<CarouselApi | null>(null);
+  const [current, setCurrent] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+
   const source: Product[] = [...List.Men, ...List.Women];
   const products = source.slice(0, 5);
-  const [activeDot, setActiveDot] = useState(2);
 
-  // Fallback placeholders during dev if list is empty
+  // Fallback for dev if list is empty
   const items: Product[] = products.length
     ? products
     : Array.from({ length: 5 }).map((_, i) => ({
@@ -23,6 +34,24 @@ export default function Products() {
         description: "",
       }));
 
+  // Sync the active dot with the current slide
+  useEffect(() => {
+    if (!api) return;
+    const onSelect = () => setCurrent(api.selectedScrollSnap());
+    api.on("select", onSelect);
+    onSelect();
+    return () => {
+      api.off("select", onSelect);
+    };
+  }, [api]);
+
+  // Auto-scroll every 5s, pause on hover
+  useEffect(() => {
+    if (!api || isPaused) return;
+    const id = setInterval(() => api.scrollNext(), 5000);
+    return () => clearInterval(id);
+  }, [api, isPaused]);
+
   return (
     <section
       id="products"
@@ -30,7 +59,7 @@ export default function Products() {
     >
       <div className="mx-auto flex w-full max-w-[1280px] flex-col items-center gap-8">
 
-        {/* Header — per Figma */}
+        {/* Header */}
         <BlurFade inView duration={0.7} delay={0}>
           <header className="flex flex-col items-center gap-1 text-center max-w-[522px]">
             <h2 className="font-instrument uppercase text-[42px] max-md:text-3xl leading-[55px] text-[#193827]">
@@ -42,47 +71,86 @@ export default function Products() {
           </header>
         </BlurFade>
 
-        {/* Product row — 5 items at 220×241 */}
-        <div className="flex flex-wrap items-start justify-center gap-8 w-full">
-          {items.map((item, i) => (
-            <BlurFade
-              key={`${item.nextLink}-${i}`}
-              inView
-              duration={0.6}
-              delay={0.1 + i * 0.08}
+        {/* Carousel */}
+        <BlurFade inView duration={0.7} delay={0.15}>
+          <div
+            className="relative w-full"
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
+          >
+            <Carousel
+              opts={{ align: "center", loop: true }}
+              setApi={(api) => setApi(api ?? null)}
+              className="w-full"
             >
-              <Link
-                href={item.nextLink}
-                className="group flex flex-col items-center w-[220px] hover:-translate-y-1 transition-transform duration-300"
-              >
-                <div className="w-[220px] h-[220px] flex items-center justify-center">
-                  <Image
-                    src={item.picLink}
-                    alt={item.name}
-                    width={400}
-                    height={400}
-                    className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
-                <span className="mt-2 font-dmsans uppercase text-base font-light text-[#193827] text-center leading-[21px]">
-                  {item.name}
-                </span>
-              </Link>
-            </BlurFade>
-          ))}
-        </div>
+              <CarouselContent className="-ml-6">
+                {items.map((item, i) => (
+                  <CarouselItem
+                    key={`${item.nextLink}-${i}`}
+                    className="pl-6 basis-[220px] sm:basis-[260px] md:basis-[300px] lg:basis-[340px]"
+                  >
+                    <Link
+                      href={item.nextLink}
+                      className="group flex flex-col items-center w-full hover:-translate-y-1 transition-transform duration-300"
+                    >
+                      <div className="w-full aspect-square flex items-center justify-center">
+                        <Image
+                          src={item.picLink}
+                          alt={item.name}
+                          width={500}
+                          height={500}
+                          className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
+                        />
+                      </div>
+                      <span className="mt-3 font-dmsans uppercase text-base font-light text-[#193827] text-center leading-[21px]">
+                        {item.name}
+                      </span>
+                    </Link>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
 
-        {/* Paging dots — per Figma, dot 3 active by default */}
+              {/* Arrows — Saiham-styled with faded border ring */}
+              <CarouselPrevious
+                className="
+                  hidden sm:flex
+                  -left-4 md:-left-12
+                  h-10 w-10
+                  ring-1 ring-[#193827]/40
+                  bg-transparent text-[#193827]
+                  rounded-none
+                  transition-all duration-500
+                  hover:ring-[#193827] hover:bg-[#193827] hover:text-[#efc250]
+                "
+              />
+              <CarouselNext
+                className="
+                  hidden sm:flex
+                  -right-4 md:-right-12
+                  h-10 w-10
+                  ring-1 ring-[#193827]/40
+                  bg-transparent text-[#193827]
+                  rounded-none
+                  transition-all duration-500
+                  hover:ring-[#193827] hover:bg-[#193827] hover:text-[#efc250]
+                "
+              />
+            </Carousel>
+          </div>
+        </BlurFade>
+
+        {/* Dots — click jumps, current highlights */}
         <div className="flex items-center gap-2 mt-4">
-          {Array.from({ length: 5 }).map((_, i) => (
+          {items.map((_, i) => (
             <button
               key={i}
-              onClick={() => setActiveDot(i)}
-              aria-label={`Go to page ${i + 1}`}
+              onClick={() => api?.scrollTo(i)}
+              aria-label={`Go to slide ${i + 1}`}
+              aria-current={current === i}
               className={cn(
                 "w-2 h-2 rounded-full transition-all duration-300",
-                activeDot === i
-                  ? "bg-[#1b3a29]"
+                current === i
+                  ? "w-6 bg-[#1b3a29]"
                   : "bg-[#f0f1e5] hover:bg-[#1b3a29]/40"
               )}
             />

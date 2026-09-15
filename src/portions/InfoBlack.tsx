@@ -49,7 +49,7 @@ export function InfoBlack() {
                     alt={item.name}
                     width={296}
                     height={222}
-                    className="w-[296px] h-[222px] object-cover rotate-90 group-hover:scale-105 transition-transform duration-500"
+                    className="w-[296px] h-[222px] object-contain  group-hover:scale-105 transition-transform duration-500"
                   />
                 </div>
                 <span className="font-dmsans uppercase text-white text-base font-light leading-[21px] text-center">

@@ -26,9 +26,8 @@ export default function Footer() {
             <section className="flex flex-col items-start gap-10">
               <div className="flex flex-col items-start gap-4">
                 <div className="flex flex-col items-center h-[105px] w-[135px]">
-                  <Image priority src="/Logo.svg" alt="Al-Ahad Exports" width={960} height={540} className="h-[61px] w-[53px] object-contain" />
-                  <span className="mt-[13px] font-cormorant text-[16px] text-white whitespace-nowrap uppercase">AL-AHAD EXPORTS</span>
-                  <span className="-mt-[5px] font-chathura text-[12px] text-white whitespace-nowrap uppercase">SINCE 2015</span>
+                                <Image priority src="/Group 6.svg" alt="" width={960} height={540} className="size-48 object-contain" />
+                  
                 </div>
               </div>
 
@@ -124,7 +123,7 @@ export default function Footer() {
           <div className="flex w-full flex-col items-center gap-8">
             <div className="h-px w-full max-w-[1220px] bg-[#efc250]/40" />
             <p className="font-dmsans text-center text-lg font-light text-[#efc250] leading-none">
-              Copyright © 2026 Al-Ahad Exports | All Rights Reserved
+              Copyright © 2026 Sam Exports | All Rights Reserved
             </p>
           </div>
         </div>

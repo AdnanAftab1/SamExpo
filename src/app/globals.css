@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+@import 'tailwind-animations';
 
 @custom-variant dark (&:is(.dark *));
 
@@ -308,3 +309,32 @@
   color: #efc250;
 }
 /* Men all the time */
+
+.upAndFade {
+  animation: upAndFade var(--fade-duration, 1s) ease var(--fade-delay, 0.2s) both;
+  @apply object-contain opacity-95 z-10;
+
+  /* Small default for mobile — will be overridden below */
+  --fade-y: -80px;
+  --fade-rotate: 6.98deg;
+  --fade-from: 0;
+  --fade-to: 0.95;
+}
+
+/* Desktop gets the larger travel */
+@media (min-width: 1024px) {
+  .upAndFade {
+    --fade-y: -440px;
+  }
+}
+
+@keyframes upAndFade {
+  from {
+    transform: translateY(0) rotate(var(--fade-rotate));
+    opacity: var(--fade-from);
+  }
+  to {
+    transform: translateY(var(--fade-y)) rotate(var(--fade-rotate));
+    opacity: var(--fade-to);
+  }
+}
