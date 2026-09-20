@@ -4,21 +4,22 @@ import Link from "next/link";
 
 export default function Intro() {
   return (
-    <section className="relative w-full min-h-[880px] overflow-hidden bg-[#f7f7eb]">
-
+<section className="relative w-full min-h-[880px] overflow-clip bg-[#f7f7eb]">
       {/* Floating leather image — bottom center-right */}
-      <div
-        aria-hidden
-        className="hidden lg:block absolute pointer-events-none z-0"
-        style={{
-          width: 447,
-          height: 596,
-          left: "calc(50% - 447px/2 - 35px)",
-          bottom: "-320px",
-        }}
-      >
-        <Image src="/MainBag.png" alt="Can show anything" fill className="upAndFade" />
-      </div>
+  <div
+  aria-hidden
+  className="
+    absolute pointer-events-none z-0 overflow-hidden
+    w-[240px] h-[320px]
+    left-1/2 -translate-x-1/2
+    top-[200px]
+    sm:w-[320px] sm:h-[426px]
+    lg:w-[447px] lg:h-[596px]
+    lg:left-[calc(50%-447px/2-35px)] lg:translate-x-0
+  "
+>
+  <Image src="/MainBag.png" alt="" fill className="upAndFade" />
+</div>
 
       {/* Headline */}
       <div className="relative z-10 flex min-h-[880px] w-full flex-col items-center justify-center px-6 -mt-40">

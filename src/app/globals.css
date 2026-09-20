@@ -308,33 +308,30 @@
 
   color: #efc250;
 }
-/* Men all the time */
+
+
+
+
 
 .upAndFade {
-  animation: upAndFade var(--fade-duration, 1s) ease var(--fade-delay, 0.2s) both;
-  @apply object-contain opacity-95 z-10;
+  animation: upAndFade var(--fade-duration, 1.2s) ease-out var(--fade-delay, 0.2s) both;
+  @apply object-contain opacity-95;
 
-  /* Small default for mobile — will be overridden below */
-  --fade-y: -80px;
   --fade-rotate: 6.98deg;
-  --fade-from: 0;
-  --fade-to: 0.95;
+  --fade-from-opacity: 0;
+  --fade-to-opacity: 0.95;
+  --fade-from-y: 80%;    /* starts 80% of its own height further down */
+  --fade-to-y: 0%;       /* ends at its natural position */
+  --fade-duration: 1.2s;
+  --fade-delay: 0.2s;
 }
-
-/* Desktop gets the larger travel */
-@media (min-width: 1024px) {
-  .upAndFade {
-    --fade-y: -440px;
-  }
-}
-
 @keyframes upAndFade {
   from {
-    transform: translateY(0) rotate(var(--fade-rotate));
-    opacity: var(--fade-from);
+    transform: translateY(80%) rotate(var(--fade-rotate));
+    opacity: var(--fade-from-opacity);
   }
   to {
-    transform: translateY(var(--fade-y)) rotate(var(--fade-rotate));
-    opacity: var(--fade-to);
+    transform: translateY(0%) rotate(var(--fade-rotate));
+    opacity: var(--fade-to-opacity);
   }
 }

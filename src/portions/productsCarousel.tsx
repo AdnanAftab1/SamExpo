@@ -24,7 +24,6 @@ export default function Products() {
   const source: Product[] = [...List.Men, ...List.Women];
   const products = source.slice(0, 5);
 
-  // Fallback for dev if list is empty
   const items: Product[] = products.length
     ? products
     : Array.from({ length: 5 }).map((_, i) => ({
@@ -34,7 +33,6 @@ export default function Products() {
         description: "",
       }));
 
-  // Sync the active dot with the current slide
   useEffect(() => {
     if (!api) return;
     const onSelect = () => setCurrent(api.selectedScrollSnap());
@@ -45,7 +43,6 @@ export default function Products() {
     };
   }, [api]);
 
-  // Auto-scroll every 5s, pause on hover
   useEffect(() => {
     if (!api || isPaused) return;
     const id = setInterval(() => api.scrollNext(), 5000);
@@ -55,13 +52,13 @@ export default function Products() {
   return (
     <section
       id="products"
-      className="w-full bg-[#f7f7eb] py-[60px] px-5 sm:px-8 lg:px-20"
+      className="w-full bg-[#f7f7eb] py-[60px] px-0 sm:px-8 lg:px-20"
     >
       <div className="mx-auto flex w-full max-w-[1280px] flex-col items-center gap-8">
 
         {/* Header */}
         <BlurFade inView duration={0.7} delay={0}>
-          <header className="flex flex-col items-center gap-1 text-center max-w-[522px]">
+          <header className="flex flex-col items-center gap-1 text-center max-w-[522px] px-5 sm:px-0">
             <h2 className="font-instrument uppercase text-[42px] max-md:text-3xl leading-[55px] text-[#193827]">
               Our Leather Collection
             </h2>
@@ -74,20 +71,31 @@ export default function Products() {
         {/* Carousel */}
         <BlurFade inView duration={0.7} delay={0.15}>
           <div
-            className="relative w-full"
+            className="relative w-[90vw]"
             onMouseEnter={() => setIsPaused(true)}
             onMouseLeave={() => setIsPaused(false)}
           >
             <Carousel
-              opts={{ align: "center", loop: true }}
+              opts={{
+                align: "center",
+                loop: true,
+                containScroll: "trimSnaps",
+              }}
               setApi={(api) => setApi(api ?? null)}
               className="w-full"
             >
-              <CarouselContent className="-ml-6">
+              <CarouselContent className="-ml-3 sm:-ml-4 md:-ml-6">
                 {items.map((item, i) => (
                   <CarouselItem
                     key={`${item.nextLink}-${i}`}
-                    className="pl-6 basis-[220px] sm:basis-[260px] md:basis-[300px] lg:basis-[340px]"
+                    className="
+                      pl-3 sm:pl-4 md:pl-6
+                      basis-[80%]         
+                      xs:basis-[70%]
+                      sm:basis-1/2        
+                      md:basis-1/3        
+                      lg:basis-[340px]   
+                    "
                   >
                     <Link
                       href={item.nextLink}
@@ -100,9 +108,10 @@ export default function Products() {
                           width={500}
                           height={500}
                           className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
+                          sizes="(max-width: 640px) 80vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 340px"
                         />
                       </div>
-                      <span className="mt-3 font-dmsans uppercase text-base font-light text-[#193827] text-center leading-[21px]">
+                      <span className="mt-3 font-dmsans uppercase text-sm sm:text-base font-light text-[#193827] text-center leading-[21px] px-2">
                         {item.name}
                       </span>
                     </Link>
@@ -110,12 +119,12 @@ export default function Products() {
                 ))}
               </CarouselContent>
 
-              {/* Arrows — Saiham-styled with faded border ring */}
+              {/* Arrows — visible from sm up */}
               <CarouselPrevious
                 className="
                   hidden sm:flex
-                  -left-4 md:-left-12
-                  h-10 w-10
+                  -left-2 md:-left-6 lg:-left-12
+                  h-9 w-9 md:h-10 md:w-10
                   ring-1 ring-[#193827]/40
                   bg-transparent text-[#193827]
                   rounded-none
@@ -126,8 +135,8 @@ export default function Products() {
               <CarouselNext
                 className="
                   hidden sm:flex
-                  -right-4 md:-right-12
-                  h-10 w-10
+                  -right-2 md:-right-6 lg:-right-12
+                  h-9 w-9 md:h-10 md:w-10
                   ring-1 ring-[#193827]/40
                   bg-transparent text-[#193827]
                   rounded-none
@@ -139,7 +148,7 @@ export default function Products() {
           </div>
         </BlurFade>
 
-        {/* Dots — click jumps, current highlights */}
+        {/* Dots */}
         <div className="flex items-center gap-2 mt-4">
           {items.map((_, i) => (
             <button
