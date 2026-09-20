@@ -55,7 +55,7 @@ export default async function ProductDetail({ params }: { params: Promise<{ slug
 
   if (!entry) {
     return (
-      <main className="w-full min-h-screen flex items-center justify-center bg-[#f7f7eb] pt-[88px]">
+      <main className="w-screen min-h-screen flex items-center justify-center bg-[#f7f7eb] pt-[88px]">
         <p className="font-instrument text-[#193827] text-6xl uppercase">Error 404</p>
       </main>
     );
@@ -78,11 +78,11 @@ export default async function ProductDetail({ params }: { params: Promise<{ slug
   const relatedProducts = allImages.slice(0, 5);
 
   return (
-    <main className="w-full bg-[#f7f7eb] pt-[88px]">
+    <main className="w-screen bg-[#f7f7eb] pt-[88px]">
 
       {/* ============ SECTION 1: Hero / Product Info ============ */}
       <section
-        className="w-full bg-[#f7f7eb] px-5 sm:px-8 lg:px-20"
+        className="w-screen bg-[#f7f7eb] px-5 sm:px-8 lg:px-20"
         style={{ paddingTop: 150, paddingBottom: 60 }}
       >
         <div className="mx-auto flex w-full max-w-[1280px] flex-col lg:flex-row items-center justify-between gap-12 lg:gap-[130px]">
@@ -203,7 +203,7 @@ export default async function ProductDetail({ params }: { params: Promise<{ slug
 
       {/* ============ SECTION 2: Related Products ============ */}
       <section
-        className="w-full bg-[#f7f7eb] px-5 sm:px-8 lg:px-20 flex flex-col items-center gap-8"
+        className="w-screen bg-[#f7f7eb] px-5 sm:px-8 lg:px-20 flex flex-col items-center gap-8"
         style={{ paddingTop: 80, paddingBottom: 60 }}
       >
         <div className="mx-auto flex w-full max-w-[1280px] flex-col items-center gap-[60px]">

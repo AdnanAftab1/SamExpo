@@ -28,7 +28,7 @@ export default function ContactForm() {
   }
 
   return (
-    <section className="relative w-full bg-[#f7f7eb] py-[80px] px-5 sm:px-8 lg:px-20 overflow-hidden">
+    <section className="relative w-screen bg-[#f7f7eb] py-[80px] px-5 sm:px-8 lg:px-20 overflow-hidden">
 
       {/* Decorative rotated leather image (bottom-right) */}
       <div

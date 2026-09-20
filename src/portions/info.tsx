@@ -36,7 +36,7 @@ export function Info() {
   return (
     <>
       {/* ============ Section 3: Why Partner ============ */}
-      <section className="w-full bg-[#f7f7eb] py-[60px] px-5 sm:px-8 lg:px-20">
+      <section className="w-screen bg-[#f7f7eb] py-[60px] px-5 sm:px-8 lg:px-20">
         <div className="mx-auto flex w-full max-w-[1280px] flex-col items-center gap-[60px]">
 
           <BlurFade inView duration={0.7} delay={0}>
@@ -74,7 +74,7 @@ export function Info() {
       </section>
 
       {/* ============ Section 4: About Us Split ============ */}
-      <section className="w-full bg-[#f7f7eb] py-[60px] px-5 sm:px-8 lg:px-20">
+      <section className="w-screen bg-[#f7f7eb] py-[60px] px-5 sm:px-8 lg:px-20">
         <div className="mx-auto flex w-full max-w-[1280px] flex-col lg:flex-row items-center justify-center gap-12 lg:gap-[130px]">
 
           {/* Left: text */}

@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="relative w-full bg-[#193827]">
+    <footer className="relative w-screen bg-[#193827]">
 
       {/* Top decorative vector */}
       <div className="w-full h-16 border-t border-b border-[#efc250]/40 relative overflow-hidden">

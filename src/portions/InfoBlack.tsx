@@ -21,7 +21,7 @@ export function InfoBlack() {
       }));
 
   return (
-    <section className="w-full bg-[#193827] py-[80px] px-5 sm:px-8 lg:px-20">
+    <section className="w-screen bg-[#193827] py-[80px] px-5 sm:px-8 lg:px-20">
       <div className="mx-auto flex w-full max-w-[1280px] flex-col items-center gap-[60px]">
 
         <BlurFade inView duration={0.7} delay={0}>

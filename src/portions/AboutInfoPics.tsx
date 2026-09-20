@@ -17,7 +17,7 @@ const teamMembers: TeamMember[] = [
 
 export default function AboutInfoPics() {
   return (
-    <section className="w-full flex flex-col justify-center items-center gap-8 bg-[#193827] py-[80px] px-5 sm:px-8 lg:px-20">
+    <section className="w-screen flex flex-col justify-center items-center gap-8 bg-[#193827] py-[80px] px-5 sm:px-8 lg:px-20">
       <div className="mx-auto w-full max-w-[1280px] flex flex-col items-center gap-[60px]">
 
         <BlurFade inView duration={0.7} delay={0}>

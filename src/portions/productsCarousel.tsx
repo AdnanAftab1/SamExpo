@@ -52,7 +52,7 @@ export default function Products() {
   return (
     <section
       id="products"
-      className="w-full bg-[#f7f7eb] py-[60px] px-0 sm:px-8 lg:px-20"
+      className="w-screen bg-[#f7f7eb] py-[60px] px-0 sm:px-8 lg:px-20"
     >
       <div className="mx-auto flex w-full max-w-[1280px] flex-col items-center gap-8">
 

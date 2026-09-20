@@ -3,7 +3,7 @@ import { BlurFade } from "@/components/ui/blur-fade";
 
 export default function AboutInfos() {
   return (
-    <section className="w-full bg-[#f7f7eb] py-[60px] px-5 sm:px-8 lg:px-20 flex flex-col gap-20">
+    <section className="w-screen bg-[#f7f7eb] py-[60px] px-5 sm:px-8 lg:px-20 flex flex-col gap-20">
 
       {/* Block 1 — Text left, Image right */}
       <div className="mx-auto w-full max-w-[1280px] flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-[130px]">

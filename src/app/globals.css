@@ -312,7 +312,6 @@
 
 
 
-
 .upAndFade {
   animation: upAndFade var(--fade-duration, 1.2s) ease-out var(--fade-delay, 0.2s) both;
   @apply object-contain opacity-95;
@@ -320,11 +319,13 @@
   --fade-rotate: 6.98deg;
   --fade-from-opacity: 0;
   --fade-to-opacity: 0.95;
-  --fade-from-y: 80%;    /* starts 80% of its own height further down */
-  --fade-to-y: 0%;       /* ends at its natural position */
+  --fade-from-y: 80%;
+  --fade-to-y: 0%;
   --fade-duration: 1.2s;
   --fade-delay: 0.2s;
 }
+
+
 @keyframes upAndFade {
   from {
     transform: translateY(80%) rotate(var(--fade-rotate));

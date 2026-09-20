@@ -3,7 +3,7 @@ import { BlurFade } from "@/components/ui/blur-fade";
 export default function AboutUsIntro() {
   return (
     <section
-      className="w-full flex flex-col justify-center items-center gap-8 bg-[#193827]"
+      className="w-screen flex flex-col justify-center items-center gap-8 bg-[#193827]"
       style={{ padding: "120px 80px 80px" }}
     >
       <BlurFade inView duration={0.7} delay={0}>

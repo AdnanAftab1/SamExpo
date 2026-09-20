@@ -48,7 +48,7 @@ const articles: Post[] = [
 
 export default function InfoLong() {
   return (
-    <section className="w-full bg-[#f7f7eb] py-[60px] pb-[80px] px-5 sm:px-8 lg:px-20">
+    <section className="w-screen bg-[#f7f7eb] py-[60px] pb-[80px] px-5 sm:px-8 lg:px-20">
       <div className="mx-auto flex w-full max-w-[1280px] flex-col items-center gap-[60px]">
 
         {/* Header */}

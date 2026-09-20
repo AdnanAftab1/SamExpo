@@ -58,11 +58,11 @@ export default function ProductsCategories({ category }: ProductProps) {
   const grid = gridItems.length ? gridItems : Array.from({ length: 12 }, (_, i) => placeholder(i));
 
   return (
-    <main className="w-full bg-[#f7f7eb] pt-[88px]">
+    <main className="w-screen bg-[#f7f7eb] pt-[88px]">
 
       {/* ============ SECTION 1: Catalog Header ============ */}
       <section
-        className="w-full bg-[#f7f7eb] flex flex-col items-center gap-8 px-5 sm:px-8 lg:px-20"
+        className="w-screen bg-[#f7f7eb] flex flex-col items-center gap-8 px-5 sm:px-8 lg:px-20"
         style={{ paddingTop: 150, paddingBottom: 60 }}
       >
         <div className="w-full max-w-[1280px] flex flex-col items-center gap-[60px]">
@@ -129,7 +129,7 @@ export default function ProductsCategories({ category }: ProductProps) {
       </section>
 
       {/* ============ SECTION 2: Filter + Product Grid ============ */}
-      <section className="w-full bg-[#f7f7eb] py-[60px] px-5 sm:px-8 lg:px-20">
+      <section className="w-screen bg-[#f7f7eb] py-[60px] px-5 sm:px-8 lg:px-20">
         <div className="mx-auto flex w-full max-w-[1280px] flex-col items-center gap-8">
 
           {/* Header */}
@@ -179,7 +179,7 @@ export default function ProductsCategories({ category }: ProductProps) {
           </BlurFade>
 
           {/* Grid — 3 rows × 4 cols of 287×375 cards */}
-          <div className="w-full flex flex-col gap-10">
+          <div className="w-screen flex flex-col gap-10">
             {[0, 1, 2].map((rowIdx) => (
               <div
                 key={rowIdx}

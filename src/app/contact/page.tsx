@@ -7,7 +7,7 @@ export const metadata = {
 
 export default function ContactPage() {
   return (
-    <main className="w-full bg-[#f7f7eb] pt-[88px]">
+    <main className="w-screen bg-[#f7f7eb] pt-[88px]">
       <ContactForm />
     </main>
   );
