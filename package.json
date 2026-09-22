@@ -4,10 +4,10 @@
   "private": true,
   "scripts": {
     "predev": "bun Renamer.ts",
-    "dev": "next dev",
+    "dev": "node init && next dev",
     "prebuild": "bun Renamer.ts",
-    "build": "next build",
-    "start": "next start",
+    "build": "node init && next build",
+    "start": "node init && next start",
     "lint": "eslint"
   },
   "dependencies": {

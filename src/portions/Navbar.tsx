@@ -73,7 +73,7 @@ export default function Navbar() {
             </button>
 
             {/* Center: Logo */}
-            <Link href="/" aria-label="Al-Ahad Exports, since 2015" className="flex flex-col items-center h-[61px] w-[100px]">
+            <Link href="/" aria-label="Al-Ahad Exports, since 2015" className="flex flex-col items-center ">
               <Image priority src="/Group 6.svg" alt="" width={960} height={540} className="size-24 object-contain" />
             </Link>
 
